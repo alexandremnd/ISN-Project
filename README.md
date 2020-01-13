@@ -6,8 +6,10 @@
  L'objectif final est de produire un jeu vidéo sous Unity :smile: .
 
 ## Conventions de branches
- * On utilisera deux branches : master, develop
- * Lors du développement, on dérivera de develop
+ * On utilisera deux branches principales: master, develop.
+ * La branche develop dérive de master.
+ * On utilisera une branche nommé features-(le nom de ce que l'on code) qui dérivera de develop.
+ * Quand on a terminé de coder la feature, on merge la branche à develop.
  * Quand on a terminé une version, on merge develop avec master, et on tague master
 
 ## Conventions de disposition
