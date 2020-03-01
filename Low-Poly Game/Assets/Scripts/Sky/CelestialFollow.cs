@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility.Math;
 
+[ExecuteInEditMode]
 public class CelestialFollow : MonoBehaviour
 {
     [Header("Object References")]
@@ -10,10 +11,15 @@ public class CelestialFollow : MonoBehaviour
     [SerializeField] private Transform m_moon;
     [SerializeField] private Transform m_sunLight;
     [SerializeField] private Transform m_moonLight;
-    [SerializeField] private Transform m_camera;
+    private Transform m_camera;
 
     [Header("Parameters")]
     [SerializeField] private float m_distanceBetweenCameraCelestial;
+
+    private void Start()
+    {
+        m_camera = Camera.main.transform;
+    }
 
     void Update()
     {

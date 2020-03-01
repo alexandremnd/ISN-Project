@@ -11,7 +11,7 @@ public class DayCycler : MonoBehaviour
     [SerializeField, Tooltip("Set the hour and minute when the day starts.")] private Vector2 m_startTime = new Vector2(12, 0);
     [SerializeField, Tooltip("Include the length of day and night.")] private float m_dayLength;
 
-    #region Properties|Time
+    #region Methods|Time
     public Vector2 TimeToVector()
     {
         Vector2 time = new Vector2();
@@ -37,9 +37,9 @@ public class DayCycler : MonoBehaviour
     #region Methods|Rotation
     public float Rotation(float time)
     {
-        // Cette équation a été déterminée manuellement afin de représenter la rotation en fonction du temps.
-        float latitude = Mathf.Sin((time * Mathf.PI) / 12 - 1.7f);
-        float yAngle = -latitude * 90f;
+        // Cette équation a été déterminée manuellement afin de représenter l'angle en fonction du temps 
+        // Dans une intervalle de 0 à 24, afin de pouvoir déterminer l'angle de manière immédiate
+        float yAngle = -15 * time + 450;
         return yAngle;
     }
     #endregion
@@ -51,7 +51,7 @@ public class DayCycler : MonoBehaviour
         m_sunLight.localRotation = Quaternion.Euler(0, Rotation(m_time), 0);
     }
 
-    private void Update()
+    private void FixedUpdate ()
     {
         UpdateTime();
         UpdateRotation();
@@ -60,6 +60,7 @@ public class DayCycler : MonoBehaviour
     private void UpdateTime()
     {
         m_time += (Time.deltaTime * 24) / (m_dayLength * 60);
+        m_time = (m_time > 24) ? 0 : m_time;
         m_timeFormatted = TimeToString();
     }
 
@@ -69,7 +70,7 @@ public class DayCycler : MonoBehaviour
         m_sunLight.Rotate(new Vector3(0, -(Time.deltaTime * 6) / m_dayLength, 0));
     }
 
-    private void SetTime(float time)
+    public void SetTime(float time)
     {
         m_time = time;
         m_sunLight.localRotation = Quaternion.Euler(0, Rotation(time), 0);
