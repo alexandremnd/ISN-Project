@@ -39,7 +39,7 @@ public class DayCycler : MonoBehaviour
     {
         // Cette équation a été déterminée manuellement afin de représenter l'angle en fonction du temps 
         // Dans une intervalle de 0 à 24, afin de pouvoir déterminer l'angle de manière immédiate
-        float yAngle = -15 * time + 450;
+        float yAngle = -15 * time + 105;
         return yAngle;
     }
     #endregion
@@ -74,5 +74,12 @@ public class DayCycler : MonoBehaviour
     {
         m_time = time;
         m_sunLight.localRotation = Quaternion.Euler(0, Rotation(time), 0);
+    }
+
+    public void SetTime()
+    {
+        m_time = VectorToTime(m_startTime);
+        m_sunLight.localRotation = Quaternion.Euler(0, Rotation(m_time), 0);
+        GetComponent<CelestialFollow>().UpdateRotation();
     }
 }

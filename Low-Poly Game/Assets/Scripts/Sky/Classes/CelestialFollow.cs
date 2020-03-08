@@ -19,12 +19,9 @@ public class CelestialFollow : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float m_distanceBetweenCameraCelestial;
 
-    void FixedUpdate()
+    void Update()
     {
-        m_sun.position = m_camera.position - (m_sunLight.forward * m_distanceBetweenCameraCelestial);
-        m_moon.position = m_camera.position - (m_moonLight.forward * m_distanceBetweenCameraCelestial);
-        m_moon.LookAt(m_sunLight);
-
+        UpdateRotation();
         // Le RP provoque des erreurs quand deux lumières volumétriques se rencontrent.
         if (SunBellowHorizon)
         {
@@ -40,6 +37,13 @@ public class CelestialFollow : MonoBehaviour
             m_moonLightData.EnableShadows(false);
             m_moonLightData.affectsVolumetric = false;
         }
+    }
+
+    public void UpdateRotation()
+    {
+        m_sun.position = m_camera.position - (m_sunLight.forward * m_distanceBetweenCameraCelestial);
+        m_moon.position = m_camera.position - (m_moonLight.forward * m_distanceBetweenCameraCelestial);
+        m_moon.LookAt(m_sunLight);
     }
 
     public bool MoonBellowHorizon
