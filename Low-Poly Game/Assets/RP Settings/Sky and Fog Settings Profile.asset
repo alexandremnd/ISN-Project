@@ -161,7 +161,7 @@ MonoBehaviour:
     max: 1
   horizonTint:
     m_OverrideState: 1
-    m_Value: {r: 0.9450981, g: 0.9686275, b: 0.9803922, a: 1}
+    m_Value: {r: 0.7568628, g: 0.86666673, b: 0.94117653, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 0

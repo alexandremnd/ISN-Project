@@ -54,20 +54,20 @@ public class DayCycler : MonoBehaviour
     private void FixedUpdate ()
     {
         UpdateTime();
-        UpdateRotation();
+        SetTime(m_time);
     }
 
     private void UpdateTime()
     {
         m_time += (Time.deltaTime * 24) / (m_dayLength * 60);
         m_time = (m_time > 24) ? 0 : m_time;
-        m_timeFormatted = TimeToString();
-    }
 
-    private void UpdateRotation()
-    {
-        // On inverse la rotation en y (rotation anti-horaire).
-        m_sunLight.Rotate(new Vector3(0, -(Time.deltaTime * 6) / m_dayLength, 0));
+        // Problème de lumière provoquant des artéfacts noires horribles.
+        if ((m_time > 7 && m_time < 7.01) || (m_time > 18.95 && m_time < 19.01))
+        {
+            m_time += 0.01f;
+        }
+        m_timeFormatted = TimeToString();
     }
 
     public void SetTime(float time)
