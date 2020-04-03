@@ -10,6 +10,7 @@ public class DayCycler : MonoBehaviour
     [SerializeField, ReadOnly] private float m_time;
     [SerializeField, Tooltip("Set the hour and minute when the day starts.")] private Vector2 m_startTime = new Vector2(12, 0);
     [SerializeField, Tooltip("Include the length of day and night.")] private float m_dayLength;
+    [SerializeField] private bool m_stopTime = false;
 
     #region Methods|Time
     public Vector2 TimeToVector()
@@ -53,8 +54,11 @@ public class DayCycler : MonoBehaviour
 
     private void FixedUpdate ()
     {
-        UpdateTime();
-        SetTime(m_time);
+        if (!m_stopTime)
+        {
+            UpdateTime();
+            SetTime(m_time);
+        }
     }
 
     private void UpdateTime()
