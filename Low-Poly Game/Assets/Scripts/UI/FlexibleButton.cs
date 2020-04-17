@@ -74,6 +74,8 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         m_buttonComponent = GetComponent<Button>();
         m_textComponent = GetComponentInChildren<TextMeshProUGUI>();
 
+        m_textComponent.SetText(this.name);
+
         if (m_imageComponent == null)
         {
             m_imageComponent = gameObject.AddComponent(typeof(Image)) as Image;
@@ -175,5 +177,10 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     private void Update()
     {
         // Unity shit ...
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 }
