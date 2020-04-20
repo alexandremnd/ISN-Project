@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.5384929, g: 1.1330348, b: 4.229968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2181,7 +2181,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0.5882353}
+    m_NormalColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_HighlightedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_PressedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_SelectedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
@@ -2203,7 +2203,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627370241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1148572300}
+        m_MethodName: SetCompass
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 627370243}
+          m_ObjectArgumentAssemblyTypeName: FlexibleButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &627370241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2253,7 +2264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isPartOfAButtonGroup: 0
-  m_isActiveByDefault: 0
+  m_isActiveByDefault: 1
   m_menuComponent: {fileID: 0}
   m_shouldOpenPanel: 0
   m_panel: {fileID: 0}
@@ -2274,7 +2285,7 @@ MonoBehaviour:
   m_shouldTakeButtonName: 0
   m_textOnIdle: Off
   m_textOnActive: On
-  m_isActive: 0
+  m_isActive: 1
 --- !u!4 &646495394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536263756640002, guid: 43dd8d83e744f1d4d9d714b8c7b35dad,
@@ -5503,7 +5514,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0.5882353}
+    m_NormalColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_HighlightedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_PressedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
     m_SelectedColor: {r: 0.5019608, g: 0.22152683, b: 0.2117647, a: 0.39215687}
@@ -5525,7 +5536,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1210643959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1148572300}
+        m_MethodName: SetHUD
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1210643961}
+          m_ObjectArgumentAssemblyTypeName: FlexibleButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1210643959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,7 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isPartOfAButtonGroup: 0
-  m_isActiveByDefault: 0
+  m_isActiveByDefault: 1
   m_menuComponent: {fileID: 0}
   m_shouldOpenPanel: 0
   m_panel: {fileID: 0}
@@ -5596,7 +5618,7 @@ MonoBehaviour:
   m_shouldTakeButtonName: 0
   m_textOnIdle: Off
   m_textOnActive: On
-  m_isActive: 0
+  m_isActive: 1
 --- !u!1 &1211933366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8081,7 +8103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Off
+  m_text: On
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baba5c026aba3ae48b2ebf43a3421889, type: 2}
   m_sharedMaterial: {fileID: -8527329841972011784, guid: baba5c026aba3ae48b2ebf43a3421889,
@@ -9571,7 +9593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Off
+  m_text: On
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baba5c026aba3ae48b2ebf43a3421889, type: 2}
   m_sharedMaterial: {fileID: -8527329841972011784, guid: baba5c026aba3ae48b2ebf43a3421889,
