@@ -21,7 +21,7 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField] private Color m_colorOnHover = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_colorOnClick = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_colorOnActive = new Color(0, 0, 0, 255);
-    [SerializeField, Tooltip("Should we apply hover/click color even if the button is active")] 
+    [SerializeField, Tooltip("Quand le bouton est actif, devons nous changer les couleurs au survol/clic ou laisser la couleur du mode actif.")] 
     private bool m_constantColorWhenActive = true;
     [SerializeField, Range(0f, 1f)] private float m_fadeDuration;
 
@@ -32,6 +32,12 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField] private Color m_textColorOnHover = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_textColorOnClick = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_textColorOnActive = new Color(0, 0, 0, 255);
+
+    [Header("Button text settings")]
+    [SerializeField] private bool m_shouldTextChange = false;
+    [SerializeField, Tooltip("Devons nous prendre le nom du bouton pour l'appliquer au texte du bouton?")] private bool m_shouldTakeButtonName = false;
+    [SerializeField] private string m_textOnIdle = "Idle";
+    [SerializeField] private string m_textOnActive = "Active";
 
     private Image m_imageComponent;
     private Button m_buttonComponent;
@@ -55,11 +61,13 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             {
                 m_buttonComponent.colors = m_colorWhenActive;
                 m_textComponent.color = m_textColorOnActive;
+                if (m_shouldTextChange) m_textComponent.SetText(m_textOnActive);
             }
             else
             {
                 m_buttonComponent.colors = m_colorWhenIdle;
                 m_textComponent.color = m_textColorOnIdle;
+                if (m_shouldTextChange) m_textComponent.SetText(m_textOnIdle);
             }
             if (m_shouldOpenPanel)
             {
@@ -74,7 +82,14 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         m_buttonComponent = GetComponent<Button>();
         m_textComponent = GetComponentInChildren<TextMeshProUGUI>();
 
-        m_textComponent.SetText(this.name);
+        if (m_shouldTakeButtonName && !m_shouldTextChange)
+        {
+            m_textComponent.SetText(this.name);
+        }
+        else
+        {
+            m_textComponent.SetText(m_textOnIdle);
+        }
 
         if (m_imageComponent == null)
         {
