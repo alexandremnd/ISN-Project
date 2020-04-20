@@ -191,7 +191,7 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void Update()
     {
-        // Unity shit ...
+        // Unity 
     }
 
     public void CloseGame()

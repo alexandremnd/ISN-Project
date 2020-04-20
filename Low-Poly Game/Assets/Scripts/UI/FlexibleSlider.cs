@@ -8,7 +8,6 @@ public class FlexibleSlider : MonoBehaviour
 {
     [SerializeField] private bool m_shouldShowSliderValue = true;
     [SerializeField] private TextMeshProUGUI m_textComponent;
-
     private Slider m_sliderComponent;
 
     private void Awake()
@@ -21,7 +20,7 @@ public class FlexibleSlider : MonoBehaviour
     {
         if (m_textComponent != null)
         {
-            m_textComponent.SetText(m_sliderComponent.value.ToString());
+            m_textComponent.SetText(Mathf.RoundToInt(m_sliderComponent.value).ToString());
         }
     }
 }
