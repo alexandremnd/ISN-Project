@@ -10,6 +10,7 @@ public class SettingsManager : MonoBehaviour
 {
     [Header("Object references")]
     [SerializeField] private Camera m_camera;
+    [SerializeField] private HDAdditionalCameraData m_moreCamera;
     [SerializeField] private Volume m_skyFogVolume;
     [SerializeField] private Volume m_postProcessVolume;
 
@@ -143,11 +144,11 @@ public class SettingsManager : MonoBehaviour
         SetSettings<bool>("anti_aliasing", button.IsActive);
         if (m_settings["anti_aliasing"] == true)
         {
-            QualitySettings.antiAliasing = 4;
+            m_moreCamera.antialiasing = HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing;
         }
         else
         {
-            QualitySettings.antiAliasing = 0;
+            m_moreCamera.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
         }
     }
 
@@ -240,15 +241,15 @@ public class SettingsManager : MonoBehaviour
 
         if (m_settings["anti_aliasing"] == true)
         {
-            QualitySettings.antiAliasing = 4;
+            m_moreCamera.antialiasing = HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing;
         }
         else
         {
-            QualitySettings.antiAliasing = 0;
+            m_moreCamera.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
         }
 
         m_dof.active = m_settings["depth_of_field"];
-        m_fog.active = m_settings["volumetric_fog"];
+        m_fog.enableVolumetricFog = m_settings["volumetric_fog"];
         m_ao.active = m_settings["ambient_occlusion"];
         m_ssr.active = m_settings["screen_space_reflection"];
         m_vignette.active = m_settings["vignette"];
