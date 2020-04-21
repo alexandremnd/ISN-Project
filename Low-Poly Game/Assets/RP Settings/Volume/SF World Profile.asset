@@ -203,7 +203,7 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   tint:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
     m_Value: 0
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 29.3
+    m_Value: 20
   albedo:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -239,7 +239,7 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 29.7
+    m_Value: 15
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: SF Profile
+  m_Name: SF World Profile
   m_EditorClassIdentifier: 
   components:
   - {fileID: 6775376097864012941}
