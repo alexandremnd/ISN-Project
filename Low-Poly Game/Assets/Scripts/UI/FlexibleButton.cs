@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[ExecuteInEditMode]
 public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("General Settings")]
@@ -14,6 +13,9 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField] private FlexibleMenu m_menuComponent = null;
     [SerializeField] private bool m_shouldOpenPanel = false;
     [SerializeField] private GameObject m_panel;
+    [SerializeField] private bool m_shouldRegisterKeyboardEntry  = false;
+    private KeyCode m_registeredKeyCode;
+    [SerializeField] private string m_associatedKeybindKey;
 
     [Header("Button color settings")]
     [SerializeField] private Sprite m_sourceImage;
@@ -68,6 +70,7 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
                 m_buttonComponent.colors = m_colorWhenIdle;
                 m_textComponent.color = m_textColorOnIdle;
                 if (m_shouldTextChange) m_textComponent.SetText(m_textOnIdle);
+                if (m_shouldRegisterKeyboardEntry && m_registeredKeyCode != KeyCode.None) m_textComponent.SetText(m_registeredKeyCode.ToString());
             }
             if (m_shouldOpenPanel)
             {
@@ -76,7 +79,7 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         m_imageComponent = GetComponent<Image>();
         m_buttonComponent = GetComponent<Button>();
@@ -88,7 +91,14 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         }
         else
         {
-            m_textComponent.SetText(m_textOnIdle);
+            if (m_registeredKeyCode == KeyCode.None && m_shouldRegisterKeyboardEntry)
+            {
+                m_registeredKeyCode = Keybinds.Instance.GetKey(m_associatedKeybindKey);
+            }
+            else
+            {
+                m_textComponent.SetText(m_textOnIdle);
+            }
         }
 
         if (m_imageComponent == null)
@@ -184,14 +194,27 @@ public class FlexibleButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         m_textComponent.color = m_textColorOnIdle;
     }
 
-    private void OnValidate()
-    {
-        Awake();
-    }
-
     private void Update()
     {
-        // Unity 
+        if (m_shouldRegisterKeyboardEntry && Input.GetKeyUp(KeyCode.Escape) && IsActive)
+        {
+            this.IsActive = false;
+            m_textComponent.SetText(m_registeredKeyCode.ToString());
+        }
+
+        if (m_shouldRegisterKeyboardEntry && this.IsActive)
+        {
+             foreach(KeyCode vkey in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyUp(vkey) && vkey != KeyCode.Mouse0)
+                {
+                    m_registeredKeyCode = vkey;
+                    IsActive = false;
+                    m_textComponent.SetText(m_registeredKeyCode.ToString());
+                    Keybinds.Instance.SetKey(m_associatedKeybindKey, vkey);
+                }
+            }
+        }
     }
 
     public void CloseGame()

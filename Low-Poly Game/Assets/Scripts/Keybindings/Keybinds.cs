@@ -22,10 +22,7 @@ public class Keybinds : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
-    }
 
-    private void Start()
-    {
         string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
         m_documentGamePath = documentPath + "\\My Games\\" + Application.productName;
 
@@ -45,6 +42,7 @@ public class Keybinds : MonoBehaviour
         m_keybinds.Add("Jump", KeyCode.Space);
         m_keybinds.Add("Crouch", KeyCode.X);
         m_keybinds.Add("Inventory", KeyCode.I);
+        m_keybinds.Add("Console", KeyCode.Quote);
 
         if (File.Exists(m_documentGamePath + "\\keybinds.json"))
         {
@@ -55,10 +53,10 @@ public class Keybinds : MonoBehaviour
             {
                 if (m_keybinds.ContainsKey(item.Key))
                 {
-                    m_keybinds[item.Key] = item.Value;
+                    m_keybinds[item.Key] = (KeyCode)item.Value;
                 }
             }
-        }  
+        }
     }
 
     private void OnApplicationQuit()
@@ -70,7 +68,14 @@ public class Keybinds : MonoBehaviour
 
     public void SetKey(string key, KeyCode keyCode)
     {
-        m_keybinds[key] = keyCode;
+        try
+        {
+            m_keybinds[key] = keyCode;
+        }
+        catch
+        {
+            m_keybinds.Add(key, keyCode);
+        }
     }
 
     public KeyCode GetKey(string key)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering.HighDefinition;
 public class FlexibleSlider : MonoBehaviour
 {
     [SerializeField] private bool m_shouldShowSliderValue = true;
