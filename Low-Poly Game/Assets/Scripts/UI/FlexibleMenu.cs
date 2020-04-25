@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FlexibleMenu : MonoBehaviour
 {
-    private ButtonTMP m_activeButton = null;
+    private FlexibleButton m_activeButton = null;
 
-    public void ToggleActive(ButtonTMP button)
+    public void ToggleActive(FlexibleButton button)
     {
         if (m_activeButton != null)
         {

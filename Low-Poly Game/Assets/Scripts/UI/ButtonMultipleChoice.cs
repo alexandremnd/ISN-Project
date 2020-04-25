@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FlexibleButton))]
 public class ButtonMultipleChoice : MonoBehaviour
 {
     // Start is called before the first frame update
