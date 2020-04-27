@@ -26,7 +26,7 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     [Header("Button Text Style Settings")]
     [SerializeField] private TMP_FontAsset m_font;
-    [SerializeField] private int m_fontSize = 35;
+    [SerializeField] private float m_fontSize = 35;
     [SerializeField] private Color m_textColorOnIdle = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_textColorOnHover = new Color(0, 0, 0, 255);
     [SerializeField] private Color m_textColorOnClick = new Color(0, 0, 0, 255);
@@ -44,6 +44,7 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private ColorBlock m_colorWhenIdle;
     private ColorBlock m_colorWhenActive;
+    [SerializeField, ReadOnly] private bool m_isActive = false;
     #endregion
 
     #region Properties|State
@@ -86,8 +87,6 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
     #endregion
-
-    private bool m_isActive = false;
 
     public void Awake()
     {

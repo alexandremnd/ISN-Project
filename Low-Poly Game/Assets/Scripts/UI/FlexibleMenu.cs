@@ -15,4 +15,9 @@ public class FlexibleMenu : MonoBehaviour
         m_activeButton = button;
         m_activeButton.IsActive = true;
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }
