@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.53084075, g: 1.1213259, b: 4.2332373, a: 1}
+  m_IndirectSpecularColor: {r: 0.5326446, g: 1.1240724, b: 4.232375, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,7 +358,6 @@ MonoBehaviour:
   m_textOnActive: Oui
   m_useAssociatedSettingKey: 1
   m_settingKey: showCompass
-  m_defaultState: 1
 --- !u!114 &59772154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,7 +2422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 100
   m_associatedKey: right
 --- !u!114 &239738437
 MonoBehaviour:
@@ -3974,7 +3972,6 @@ MonoBehaviour:
   m_textComponent: {fileID: 892490347}
   m_shouldUseAssociatedSettingKey: 1
   m_settingKey: drawDistance
-  m_defaultValue: 500
 --- !u!4 &375644195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4899397863408158, guid: e0bd15bec4487de469925c62e93db78b,
@@ -4040,7 +4037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 9
   m_associatedKey: openInventory
 --- !u!114 &418195874
 MonoBehaviour:
@@ -5078,7 +5074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 113
   m_associatedKey: left
 --- !u!114 &575694671
 MonoBehaviour:
@@ -6576,6 +6571,182 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713234579}
   m_CullTransparentMesh: 0
+--- !u!114 &735979122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d877ec3e844f2ca46830012e8e79319b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 2
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  earthPreset:
+    m_OverrideState: 0
+    m_Value: 1
+  sphericalMode:
+    m_OverrideState: 0
+    m_Value: 1
+  seaLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  planetaryRadius:
+    m_OverrideState: 0
+    m_Value: 6378100
+    min: 0
+  planetCenterPosition:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: -6378100, z: 0}
+  airDensityR:
+    m_OverrideState: 0
+    m_Value: 0.04534
+    min: 0
+    max: 1
+  airDensityG:
+    m_OverrideState: 0
+    m_Value: 0.10237241
+    min: 0
+    max: 1
+  airDensityB:
+    m_OverrideState: 0
+    m_Value: 0.23264056
+    min: 0
+    max: 1
+  airTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.9, g: 0.9, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 1
+  airMaximumAltitude:
+    m_OverrideState: 0
+    m_Value: 55261.973
+    min: 0
+  aerosolDensity:
+    m_OverrideState: 0
+    m_Value: 0.01192826
+    min: 0
+    max: 1
+  aerosolTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 1
+  aerosolMaximumAltitude:
+    m_OverrideState: 0
+    m_Value: 8289.296
+    min: 0
+  aerosolAnisotropy:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -1
+    max: 1
+  numberOfBounces:
+    m_OverrideState: 0
+    m_Value: 8
+    min: 1
+    max: 10
+  groundTint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 0
+  groundColorTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  groundEmissionTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  groundEmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  planetRotation:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  spaceEmissionTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  spaceEmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  spaceRotation:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  colorSaturation:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  alphaSaturation:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  alphaMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  horizonTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.7568628, g: 0.86666673, b: 0.94117653, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 0
+  zenithTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.227451, g: 0.36078432, b: 0.62352943, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 0
+  horizonZenithShift:
+    m_OverrideState: 0
+    m_Value: 0
+    min: -1
+    max: 1
 --- !u!4 &736976942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4438448985970016, guid: 734299b447fa8f54097621cc8038e929,
@@ -6870,7 +7041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 101
   m_associatedKey: use
 --- !u!114 &768711169
 MonoBehaviour:
@@ -8395,7 +8565,6 @@ MonoBehaviour:
   - Moyenne
   - Haute
   - Ultra
-  m_defaultIndex: 1
   m_settingKey: renderQuality
 --- !u!114 &951141010
 MonoBehaviour:
@@ -9618,7 +9787,6 @@ MonoBehaviour:
   m_textOnActive: Oui
   m_useAssociatedSettingKey: 1
   m_settingKey: enableConsole
-  m_defaultState: 0
 --- !u!114 &1090162069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10186,7 +10354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 122
   m_associatedKey: forward
 --- !u!114 &1114190079
 MonoBehaviour:
@@ -11357,182 +11524,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1696865e0a9e545affd46e47c27add, type: 3}
---- !u!114 &1204628355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d877ec3e844f2ca46830012e8e79319b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 2
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  earthPreset:
-    m_OverrideState: 0
-    m_Value: 1
-  sphericalMode:
-    m_OverrideState: 0
-    m_Value: 1
-  seaLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  planetaryRadius:
-    m_OverrideState: 0
-    m_Value: 6378100
-    min: 0
-  planetCenterPosition:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: -6378100, z: 0}
-  airDensityR:
-    m_OverrideState: 0
-    m_Value: 0.04534
-    min: 0
-    max: 1
-  airDensityG:
-    m_OverrideState: 0
-    m_Value: 0.10237241
-    min: 0
-    max: 1
-  airDensityB:
-    m_OverrideState: 0
-    m_Value: 0.23264056
-    min: 0
-    max: 1
-  airTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.9, g: 0.9, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
-  airMaximumAltitude:
-    m_OverrideState: 0
-    m_Value: 55261.973
-    min: 0
-  aerosolDensity:
-    m_OverrideState: 0
-    m_Value: 0.01192826
-    min: 0
-    max: 1
-  aerosolTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
-  aerosolMaximumAltitude:
-    m_OverrideState: 0
-    m_Value: 8289.296
-    min: 0
-  aerosolAnisotropy:
-    m_OverrideState: 0
-    m_Value: 0
-    min: -1
-    max: 1
-  numberOfBounces:
-    m_OverrideState: 0
-    m_Value: 8
-    min: 1
-    max: 10
-  groundTint:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 0
-  groundColorTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  groundEmissionTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  groundEmissionMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  planetRotation:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  spaceEmissionTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  spaceEmissionMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  spaceRotation:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  colorSaturation:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 1
-  alphaSaturation:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 1
-  alphaMultiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 1
-  horizonTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.7568628, g: 0.86666673, b: 0.94117653, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 0
-  zenithTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.227451, g: 0.36078432, b: 0.62352943, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 0
-  horizonZenithShift:
-    m_OverrideState: 0
-    m_Value: 0
-    min: -1
-    max: 1
 --- !u!1 &1208415469
 GameObject:
   m_ObjectHideFlags: 0
@@ -12539,7 +12530,6 @@ MonoBehaviour:
   m_textComponent: {fileID: 1252007438}
   m_shouldUseAssociatedSettingKey: 1
   m_settingKey: audioLevel
-  m_defaultValue: 50
 --- !u!114 &1248651606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13871,7 +13861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 115
   m_associatedKey: backward
 --- !u!114 &1305129082
 MonoBehaviour:
@@ -14193,7 +14182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 323
   m_associatedKey: primaryAttack
 --- !u!114 &1311422913
 MonoBehaviour:
@@ -14395,7 +14383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 304
   m_associatedKey: sprint
 --- !u!114 &1392122459
 MonoBehaviour:
@@ -16014,7 +16001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 39
   m_associatedKey: openConsole
 --- !u!114 &1567048785
 MonoBehaviour:
@@ -16678,7 +16664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 114
   m_associatedKey: reload
 --- !u!114 &1676392748
 MonoBehaviour:
@@ -17636,7 +17621,6 @@ MonoBehaviour:
   m_textOnActive: Oui
   m_useAssociatedSettingKey: 1
   m_settingKey: showHUD
-  m_defaultState: 1
 --- !u!1 &1771294476
 GameObject:
   m_ObjectHideFlags: 0
@@ -18218,7 +18202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 32
   m_associatedKey: jump
 --- !u!114 &1798566718
 MonoBehaviour:
@@ -18757,7 +18740,6 @@ MonoBehaviour:
   m_textComponent: {fileID: 223396318}
   m_shouldUseAssociatedSettingKey: 1
   m_settingKey: fieldOfView
-  m_defaultValue: 80
 --- !u!114 &1835929777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19988,7 +19970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 324
   m_associatedKey: secondaryAttack
 --- !u!114 &1932268835
 MonoBehaviour:
@@ -20881,7 +20862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 0131e63f27731664ba0efe5766a18fa0, type: 2}
   m_StaticLightingSkyUniqueID: 4
-  m_SkySettings: {fileID: 1204628355}
+  m_SkySettings: {fileID: 735979122}
   m_SkySettingsFromProfile: {fileID: -9209893722523262637, guid: 0131e63f27731664ba0efe5766a18fa0,
     type: 2}
 --- !u!4 &1987835947
@@ -20951,7 +20932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 120
   m_associatedKey: crouch
 --- !u!114 &2017397444
 MonoBehaviour:
@@ -21850,7 +21830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e23f4f09266044a510e060a556939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_defaultKeyCode: 102
   m_associatedKey: toggleLight
 --- !u!114 &2103579350
 MonoBehaviour:
@@ -22263,6 +22242,231 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[0].settingKey
+      value: showHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[0].state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[1].settingKey
+      value: showCompass
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[1].state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[2].settingKey
+      value: enableConsole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultSetting.Array.data[2].state
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[0].settingKey
+      value: renderQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[0].value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[1].settingKey
+      value: drawDistance
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[1].value
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[2].settingKey
+      value: fieldOfView
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[2].value
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[3].settingKey
+      value: audioLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultFloat.Array.data[3].value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[0].settingKey
+      value: forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[0].key
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[1].settingKey
+      value: backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[1].key
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[2].settingKey
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[2].key
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[3].settingKey
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[3].key
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[4].settingKey
+      value: sprint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[4].key
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[5].settingKey
+      value: crouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[5].key
+      value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[6].settingKey
+      value: jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[6].key
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[7].settingKey
+      value: primaryAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[7].key
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[8].settingKey
+      value: secondaryAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[8].key
+      value: 324
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[9].settingKey
+      value: use
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[9].key
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[10].settingKey
+      value: reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[10].key
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[11].settingKey
+      value: toggleLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[11].key
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[12].settingKey
+      value: openInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[12].key
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[13].settingKey
+      value: openConsole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992364294203920118, guid: 04f5208270bef4a48ad40249390ffe68,
+        type: 3}
+      propertyPath: m_defaultKeybind.Array.data[13].key
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 2992364294203920119, guid: 04f5208270bef4a48ad40249390ffe68,
         type: 3}
       propertyPath: m_Name
