@@ -77,7 +77,6 @@ public class Settings : MonoBehaviour
 
         if (m_settings == null)
         {
-            Debug.Log("m_settings");
             m_settings = new Dictionary<string, dynamic>();
             foreach (var item in m_defaultSetting)
             {
@@ -91,7 +90,6 @@ public class Settings : MonoBehaviour
         }
         if (m_keybinds == null)
         {
-            Debug.Log("m_keybinds");
             m_keybinds = new Dictionary<string, KeyCode>();
             foreach (var item in m_defaultKeybind)
             {
@@ -108,7 +106,6 @@ public class Settings : MonoBehaviour
     #region Get/Set|Methods
     public void SetSettings<T>(string key, T value)
     {
-        Debug.Log("trying to set : " + key + "| Setting : " + value.ToString());
         if (m_settings.ContainsKey(key))
         {
             m_settings[key] = value;
@@ -121,7 +118,6 @@ public class Settings : MonoBehaviour
 
     public dynamic GetSettings(string key)
     {
-        Debug.Log("trying to access : " + key + "| Returning : " + m_settings[key]);
         if (m_settings.ContainsKey(key))
         {
             return m_settings[key];
