@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Settings : MonoBehaviour
 {
@@ -24,9 +25,10 @@ public class Settings : MonoBehaviour
         }
 
         LoadSettings();
+        ApplySettings();
     }
 
-    private void ApplySettings()
+    public void ApplySettings()
     {
         SaveSettings();
     }
