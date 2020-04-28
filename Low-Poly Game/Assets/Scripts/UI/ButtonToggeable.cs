@@ -13,7 +13,6 @@ public class ButtonToggeable : MonoBehaviour
     [Space]
     [SerializeField] private bool m_useAssociatedSettingKey;
     [SerializeField] private string m_settingKey;
-    [SerializeField] private bool m_defaultState;
 
     private FlexibleButton m_button;
 
@@ -22,16 +21,8 @@ public class ButtonToggeable : MonoBehaviour
     private void Start()
     {
         m_button = GetComponent<FlexibleButton>();
-        var setting = Settings.Instance.GetSettings(m_settingKey);
-        if (setting == null)
-        {
-            Settings.Instance.SetSettings<bool>(m_settingKey, m_defaultState);
-            m_actualState = m_defaultState;
-        }
-        else
-        {
-            m_actualState = (bool)setting;
-        }
+        m_actualState = Settings.Instance.GetSettings(m_settingKey);
+
         m_button.IsActive = m_actualState;
     }
 

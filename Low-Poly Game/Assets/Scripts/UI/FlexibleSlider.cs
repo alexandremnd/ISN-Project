@@ -12,26 +12,16 @@ public class FlexibleSlider : MonoBehaviour
 
     [SerializeField] private bool m_shouldUseAssociatedSettingKey;
     [SerializeField] private string m_settingKey;
-    [SerializeField] private float m_defaultValue;
 
     private Slider m_sliderComponent;
 
-    private void Awake()
+    private void Start()
     {
         m_sliderComponent = this.GetComponent<Slider>();
 
         if (m_shouldUseAssociatedSettingKey)
         {
             var value = Settings.Instance.GetSettings(m_settingKey);
-            if (value == null)
-            {
-                Settings.Instance.SetSettings<int>(m_settingKey, (int)m_sliderComponent.value);
-                m_sliderComponent.value = m_defaultValue;
-            }
-            else
-            {
-                m_sliderComponent.value = (int)value;
-            }
         }
     }
 

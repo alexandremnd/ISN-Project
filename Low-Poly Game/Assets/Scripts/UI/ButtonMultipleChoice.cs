@@ -8,7 +8,6 @@ public class ButtonMultipleChoice : MonoBehaviour
     [Header("Settings")]
     [SerializeField, Tooltip("Ici, insérer l'ensemble des textes à afficher sur le bouton.")] 
     private string[] m_choice;
-    [SerializeField] private int m_defaultIndex;
     [SerializeField] private string m_settingKey;
 
     private FlexibleButton m_button;
@@ -30,16 +29,7 @@ public class ButtonMultipleChoice : MonoBehaviour
             m_choiceLength = m_choice.Length;
         }
 
-        var setting = Settings.Instance.GetSettings(m_settingKey);
-        if (setting == null)
-        {
-            Settings.Instance.SetSettings<int>(m_settingKey, m_defaultIndex);
-            ActualChoice = m_defaultIndex;
-        }
-        else
-        {
-            ActualChoice = (int)setting;
-        }
+        ActualChoice = (int)Settings.Instance.GetSettings(m_settingKey);
 
         m_button.SetText(m_choice[ActualChoice]);
     }

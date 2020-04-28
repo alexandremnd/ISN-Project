@@ -191,11 +191,11 @@ MonoBehaviour:
   m_RenderPipelineSettings:
     supportShadowMask: 1
     supportSSR: 1
-    supportSSAO: 0
-    supportSubsurfaceScattering: 1
+    supportSSAO: 1
+    supportSubsurfaceScattering: 0
     increaseSssSampleCount: 0
     supportVolumetrics: 1
-    increaseResolutionOfVolumetrics: 0
+    increaseResolutionOfVolumetrics: 1
     supportLightLayers: 0
     lightLayerName0: Light Layer default
     lightLayerName1: Light Layer 1
@@ -216,23 +216,23 @@ MonoBehaviour:
     supportDecals: 1
     msaaSampleCount: 1
     supportMotionVectors: 1
-    supportRuntimeDebugDisplay: 1
+    supportRuntimeDebugDisplay: 0
     supportDitheringCrossFade: 1
-    supportTerrainHole: 0
+    supportTerrainHole: 1
     supportRayTracing: 0
     lightLoopSettings:
-      cookieAtlasSize: 2048
+      cookieAtlasSize: 1024
       cookieFormat: 74
       pointCookieSize: 128
       cubeCookieTexArraySize: 16
       cookieAtlasLastValidMip: 0
       cookieTexArraySize: 16
-      planarReflectionAtlasSize: 8192
+      planarReflectionAtlasSize: 2048
       reflectionProbeCacheSize: 64
-      reflectionCubemapSize: 256
-      reflectionCacheCompressed: 0
+      reflectionCubemapSize: 128
+      reflectionCacheCompressed: 1
       planarReflectionCacheCompressed: 0
-      skyReflectionSize: 2048
+      skyReflectionSize: 1024
       skyLightingOverrideLayerMask:
         serializedVersion: 2
         m_Bits: 0

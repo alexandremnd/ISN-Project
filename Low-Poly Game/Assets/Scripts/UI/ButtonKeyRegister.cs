@@ -6,7 +6,6 @@ using UnityEngine;
 public class ButtonKeyRegister : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private KeyCode m_defaultKeyCode;
     [SerializeField, Tooltip("Entrez la clé que l'on doit utiliser pour intéragir avec le script Keybinds.cs")]
     private string m_associatedKey;
 
@@ -17,10 +16,6 @@ public class ButtonKeyRegister : MonoBehaviour
     {
         m_button = GetComponent<FlexibleButton>();
         RegisteredKey = Settings.Instance.GetKey(m_associatedKey);
-        if (RegisteredKey == KeyCode.None)
-        {
-            Settings.Instance.SetKey(m_associatedKey, m_defaultKeyCode);
-        }
         m_button.SetText(RegisteredKey.ToString());
     }
 
