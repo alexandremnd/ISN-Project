@@ -85,8 +85,8 @@ MonoBehaviour:
   m_defaultFloat:
   - settingKey: renderQuality
     value: 2
-  - settingKey: drawDistance
-    value: 500
+  - settingKey: renderDistance
+    value: 800
   - settingKey: fieldOfView
     value: 80
   - settingKey: audioLevel

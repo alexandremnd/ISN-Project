@@ -80,7 +80,7 @@ public class Settings : MonoBehaviour
         // Paramètres graphiques
         QualitySettings.vSyncCount = m_settings["enableVsync"] ? 1 : 0;
         QualitySettings.SetQualityLevel((int)m_settings["renderQuality"]);
-        m_camera.farClipPlane = (float)m_settings["drawDistance"];
+        m_camera.farClipPlane = (float)m_settings["renderDistance"];
         m_camera.fieldOfView = (float)m_settings["fieldOfView"];
 
         // Paramètres audio
@@ -107,7 +107,6 @@ public class Settings : MonoBehaviour
         {
             m_settings.Add(item.settingKey, item.state);
         }
-
         foreach (var item in m_defaultFloat)
         {
             m_settings.Add(item.settingKey, item.value);
@@ -119,27 +118,31 @@ public class Settings : MonoBehaviour
             m_keybinds.Add(item.settingKey, item.key);
         }
 
-        var tempSettings = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(settingJson);
-        var tempKeybinds = JsonConvert.DeserializeObject<Dictionary<string, KeyCode>>(keybindJson);
-
-        foreach (var item in m_settings)
+        if (settingJson != null)
         {
-            if (!tempSettings.ContainsKey(item.Key))
+            var tempSettings = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(settingJson);
+            foreach (var item in m_settings)
             {
-                tempSettings.Add(item.Key, item.Value);
+                if (!tempSettings.ContainsKey(item.Key))
+                {
+                    tempSettings.Add(item.Key, item.Value);
+                }
             }
+            m_settings = tempSettings;
         }
 
-        foreach (var item in m_keybinds)
+        if (keybindJson != null)
         {
-            if (!tempKeybinds.ContainsKey(item.Key))
+            var tempKeybinds = JsonConvert.DeserializeObject<Dictionary<string, KeyCode>>(keybindJson);
+            foreach (var item in m_keybinds)
             {
-                tempKeybinds.Add(item.Key, item.Value);
+                if (!tempKeybinds.ContainsKey(item.Key))
+                {
+                    tempKeybinds.Add(item.Key, item.Value);
+                }
             }
+            m_keybinds = tempKeybinds;
         }
-
-        m_settings = tempSettings;
-        m_keybinds = tempKeybinds;
     }
 
     private void OnApplicationQuit()
