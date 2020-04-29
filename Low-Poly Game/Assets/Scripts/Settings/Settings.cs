@@ -6,30 +6,29 @@ using System.IO;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public class KeyCodeSetting
-{
-    public string settingKey;
-    public KeyCode key;
-}
-
-[System.Serializable]
-public class BooleanSetting
-{
-    public string settingKey;
-    public bool state;
-}
-
-[System.Serializable]
-public class FloatSetting
-{
-    public string settingKey;
-    public float value;
-}
-
-
 public class Settings : MonoBehaviour
 {
+    [System.Serializable]
+    public class KeyCodeSetting
+    {
+        public string settingKey;
+        public KeyCode key;
+    }
+
+    [System.Serializable]
+    public class BooleanSetting
+    {
+        public string settingKey;
+        public bool state;
+    }
+
+    [System.Serializable]
+    public class FloatSetting
+    {
+        public string settingKey;
+        public float value;
+    }
+
     public static Settings Instance;
 
     [Header("Default settings and keybinds")]
@@ -77,7 +76,51 @@ public class Settings : MonoBehaviour
         // Paramètres graphiques
         QualitySettings.vSyncCount = m_settings["enableVsync"] ? 1 : 0;
         QualitySettings.SetQualityLevel((int)m_settings["renderQuality"]);
-        
+
+        int resolutionX;
+        int resolutionY;
+        switch (m_settings["screenResolution"])
+        {
+            case 0:
+                resolutionX = 1280;
+                resolutionY = 720;
+                break;
+            default:
+                resolutionX = 1920;
+                resolutionY = 1080;
+                break;
+        }
+
+        FullScreenMode fullScreenMode;
+        switch (m_settings["windowType"])
+        {
+            case 0:
+                fullScreenMode = FullScreenMode.Windowed;
+                break;
+            case 1:
+                fullScreenMode = FullScreenMode.FullScreenWindow;
+                break;
+            default:
+                fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                break;
+        }
+
+        int frameRate;
+        switch (m_settings["frameRate"])
+        {
+            case 0:
+                frameRate = 60;
+                break;
+            case 1:
+                frameRate = 75;
+                break;
+            default:
+                frameRate = 144;
+                break;
+        }
+
+        Screen.SetResolution(resolutionX, resolutionY, fullScreenMode, frameRate);
+
         if (m_camera != null)
         {
             m_camera.farClipPlane = (float)m_settings["renderDistance"];
