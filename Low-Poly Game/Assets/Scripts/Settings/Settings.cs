@@ -39,8 +39,6 @@ public class Settings : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Camera m_camera;
-    [SerializeField] private HDAdditionalCameraData m_hdCamera;
-    [SerializeField] private Scene m_scene;
 
     private Dictionary<string, dynamic> m_settings;
     private Dictionary<string, KeyCode> m_keybinds;
@@ -70,7 +68,6 @@ public class Settings : MonoBehaviour
     private void LoadCamera()
     {
         m_camera = Camera.main;
-        m_hdCamera = m_camera.GetComponent<HDAdditionalCameraData>();
     }
 
     public void ApplySettings()
@@ -80,8 +77,13 @@ public class Settings : MonoBehaviour
         // Paramètres graphiques
         QualitySettings.vSyncCount = m_settings["enableVsync"] ? 1 : 0;
         QualitySettings.SetQualityLevel((int)m_settings["renderQuality"]);
-        m_camera.farClipPlane = (float)m_settings["renderDistance"];
-        m_camera.fieldOfView = (float)m_settings["fieldOfView"];
+        
+        if (m_camera != null)
+        {
+            m_camera.farClipPlane = (float)m_settings["renderDistance"];
+            m_camera.fieldOfView = (float)m_settings["fieldOfView"];
+        }
+            
 
         // Paramètres audio
         AudioListener.volume = (float)m_settings["audioLevel"]/100;
