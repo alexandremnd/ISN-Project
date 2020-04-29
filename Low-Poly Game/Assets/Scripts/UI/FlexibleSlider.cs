@@ -21,7 +21,7 @@ public class FlexibleSlider : MonoBehaviour
 
         if (m_shouldUseAssociatedSettingKey)
         {
-            var value = Settings.Instance.GetSettings(m_settingKey);
+            m_sliderComponent.value = (float)Settings.Instance.GetSettings(m_settingKey);
         }
     }
 
