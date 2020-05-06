@@ -274,6 +274,7 @@ MonoBehaviour:
   m_time: 0
   m_startTime: {x: 17, y: 50}
   m_dayLength: 10
+  m_stopTime: 0
 --- !u!1 &8788865554733173114
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ Transform:
   m_GameObject: {fileID: 8788865555107180056}
   m_LocalRotation: {x: 0.09032508, y: 0.8529092, z: -0.15738046, w: 0.4895086}
   m_LocalPosition: {x: -807.09894, y: 357.12106, z: 471.52747}
-  m_LocalScale: {x: 5000, y: 5000, z: 5000}
+  m_LocalScale: {x: 2000, y: 2000, z: 2000}
   m_Children:
   - {fileID: 8788865555634874717}
   m_Father: {fileID: 8788865554655444935}
@@ -522,8 +523,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10000000
-  m_Range: 300
+  m_Intensity: 1225000
+  m_Range: 100
   m_SpotAngle: 78.565834
   m_InnerSpotAngle: 17.86034
   m_CookieSize: 10
@@ -802,7 +803,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
-  m_ShadowAngle: 5
+  m_ShadowAngle: 1.5
 --- !u!114 &8788865556365542425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +849,7 @@ MonoBehaviour:
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
-  m_AngularDiameter: 5
+  m_AngularDiameter: 1.5
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4

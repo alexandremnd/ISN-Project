@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 3063371196000889483}
   - component: {fileID: 2593828168774612151}
   m_Layer: 0
-  m_Name: Sky Camera
+  m_Name: Game Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4096076579722914049}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &2593828168774612151
 MonoBehaviour:
   m_ObjectHideFlags: 0
