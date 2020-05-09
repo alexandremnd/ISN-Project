@@ -4,30 +4,41 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    [Header("Camera Settings")]
+    [SerializeField] private float m_mouseSensitivity = 100f;
+    [SerializeField] private float m_cameraClamping = 70f;
 
-    [SerializeField] private float mouseSensitivity = 100f;
-    [SerializeField] private float cameraClamping = 70f;
+    [Header("References")]
+    [SerializeField] private Transform m_camera;
 
-    public Transform playerBody;
-
-    float xRotation = 0f;
+    private float m_xRotation = 0f;
 
     // Start is called before the first frame update
+    // On verrouile le curseur, on règle l'angle de la camera.
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        m_camera.localRotation = Quaternion.Euler(m_xRotation, 0f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        // Les conventions sont bien respectés, parfait ;)
+        float mouseX = Input.GetAxis("Mouse X") * m_mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * m_mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -cameraClamping, cameraClamping);
+        m_xRotation -= mouseY;
+        m_xRotation = Mathf.Clamp(m_xRotation, -m_cameraClamping, m_cameraClamping);
+        
+        // La fonction Rotate incrémente la rotation actuelle.
+        // On prefere donc incrémenter plutôt que redéfinir complétement l'orientation via un Quaternion.
+        //m_camera.Rotate(new Vector3(m_xRotation, 0, 0));
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        // Le script contrôlant le joueur se trouve sur le joueur.
+        // Inutile de définir un Transform pour accéder au joueur vu que l'on est le joueur :)
+        this.transform.Rotate(new Vector3(0, mouseX));
+        
+        m_camera.localRotation = Quaternion.Euler(m_xRotation, 0f, 0f);
     }
 }
