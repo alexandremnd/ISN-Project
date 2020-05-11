@@ -61,13 +61,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800078178db926c4b97658423fc58c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_walkSpeed: 12
   m_sprintSpeed: 20
-  m_flySpeed: 5
   m_gravity: -9.81
-  m_jumpHeight: 3
-  m_noclipActive: 1
-  m_groundDistance: 0.4
+  m_jumpHeight: 2.5
+  m_flySpeed: 5
+  m_flySpeedYreducer: 2
+  m_noclipActive: 0
 --- !u!143 &2958471857770260221
 CharacterController:
   m_ObjectHideFlags: 0

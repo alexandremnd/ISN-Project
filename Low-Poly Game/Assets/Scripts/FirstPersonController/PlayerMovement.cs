@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_flySpeedYreducer = 2f;
 
     [Header("Read Only Variables")]
-    [SerializeField] private bool m_noclipActive = true;
+    [SerializeField, ReadOnly] private bool m_noclipActive = true;
 
     private Transform m_cameraTransform;
     private CharacterController m_controller;
@@ -60,21 +61,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_noclipActive)
         {
+            m_jumpVelocity = Vector3.zero;
             m_velocity.y = 0;
 
             // Tu avais remis Input.GetAxis("Vertical"), alors que tu avais enregistrer sa valeur dans la variable z :) 
             // Attention à ne pas call plusieurs fois des fonctions si tu les enregistres dans une variable.
             // Original : float mouseY = -Input.GetAxis("Vertical") * Mathf.Sin((m_cameraTransform.eulerAngles.x)*Mathf.Deg2Rad);
-            float mouseY = -z * Mathf.Sin((m_cameraTransform.eulerAngles.x)*Mathf.Deg2Rad);
+            float mouseY = -z * Mathf.Sin((m_cameraTransform.eulerAngles.x) * Mathf.Deg2Rad);
             Vector3 move = transform.right * x + transform.forward * z + transform.up * mouseY + transform.up * y * 1 / m_flySpeedYreducer;
             m_controller.Move(move * m_flySpeed * m_walkSpeed * Time.deltaTime);
-            Physics.IgnoreLayerCollision(0, 9, true);
         }
         else
         {
             // Ton code permettait le joueur de changer de direction en saut, ce qui n'est pas très réaliste :)
             // La solution était d'enregistrer la vélocité juste avant de quitter le sol, et de maintenir la même vélocité au cours du saut.
-            // 
             Vector3 move;
             if (m_isGrounded)
             {
@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
                 move = m_jumpVelocity;
                 m_controller.Move(move * Time.deltaTime);
             }
-            Physics.IgnoreLayerCollision(0, 9, false);
         }
 
         if (Settings.Instance.GetButton("jump") && m_isGrounded)
