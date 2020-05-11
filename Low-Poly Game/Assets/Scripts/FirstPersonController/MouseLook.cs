@@ -30,13 +30,10 @@ public class MouseLook : MonoBehaviour
 
         m_xRotation -= mouseY;
         m_xRotation = Mathf.Clamp(m_xRotation, -m_cameraClamping, m_cameraClamping);
-        
-        // La fonction Rotate incrémente la rotation actuelle.
-        // On prefere donc incrémenter plutôt que redéfinir complétement l'orientation via un Quaternion.
-        //m_camera.Rotate(new Vector3(m_xRotation, 0, 0));
 
         // Le script contrôlant le joueur se trouve sur le joueur.
         // Inutile de définir un Transform pour accéder au joueur vu que l'on est le joueur :)
+        // On fait donc une rotation sur le joueur.
         this.transform.Rotate(new Vector3(0, mouseX));
         
         m_camera.localRotation = Quaternion.Euler(m_xRotation, 0f, 0f);
