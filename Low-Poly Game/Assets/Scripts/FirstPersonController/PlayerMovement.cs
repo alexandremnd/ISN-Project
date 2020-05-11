@@ -2,77 +2,118 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
 
-    [SerializeField] private float walkSpeed = 12f;
-    [SerializeField] private float sprintSpeed = 20f;
-    [SerializeField] private float flySpeed = 5f;
-    [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float jumpHeight = 3f;
-    [SerializeField] private bool noclipActive = true;
+    [Header("General settings")]
+    [SerializeField] private LayerMask groundMask;
 
-    public Transform groundCheck;
-    [SerializeField] private float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    [Header("Movement settings")]
+    [SerializeField] private float m_walkSpeed = 12f;
+    [SerializeField] private float m_sprintSpeed = 20f;
+    [SerializeField] private float m_gravity = -9.81f;
+    [SerializeField] private float m_jumpHeight = 3f;
 
-    Vector3 velocity;
-    bool isGrounded;
+    [Header("No clip settings")]
+    [SerializeField] private float m_flySpeed = 5f;
+    [SerializeField] private float m_flySpeedYreducer = 2f;
 
-    float iWalkSpeed;
+    [Header("Read Only Variables")]
+    [SerializeField] private bool m_noclipActive = true;
+
+    private Transform m_cameraTransform;
+    private CharacterController m_controller;
+
+    private Vector3 m_velocity;
+    private Vector3 m_jumpVelocity;
+    private bool m_isGrounded;
+    private float m_iWalkSpeed;
 
     // Start is called before the first frame update
+    // On prend quelque références vers des objets dans la scène.
     void Start()
     {
-        iWalkSpeed = walkSpeed;
+        m_iWalkSpeed = m_walkSpeed;
+        m_cameraTransform = Camera.main.transform;
+        m_controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
+    // Ici, on transcrit les touches du clavier et mouvement de la souris en mouvement dans le jeu.
+    // On traite le déplacement naturel (physique), et le déplacement sans physique (si le mode vol est activé).
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        // "m_controller.center + transform.position" = Position du centre du Character Controller en World Space.
+        // "-transform.up", le vecteur qui se dirige vers le bas, mais dépendant de la rotation du controller
+        // "m_controller.height * 0.5f + 0.1f", la distance max entre le sol et le centre, c'est la hauteur divisé par 2, et on rajoute 0.1 en marge d'erreur. 
+        m_isGrounded = Physics.Raycast(m_controller.center + transform.position, -transform.up, m_controller.height * 0.5f + 0.1f, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        // Beau opérateur ternaire sah quel plaisir.
+        m_velocity.y = (m_isGrounded && m_velocity.y < 0) ? -2f : m_velocity.y;
+
+        m_walkSpeed = Settings.Instance.GetButton("sprint") ? m_sprintSpeed : m_iWalkSpeed;
+
+        float x = Settings.Instance.GetAxis("Horizontal");
+        float z = Settings.Instance.GetAxis("Vertical");
+        float y = Settings.Instance.GetButton("jump") ? 1 : 0;
+
+        if (m_noclipActive)
         {
-            velocity.y = -2f;
-        }
+            m_velocity.y = 0;
 
-        walkSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : iWalkSpeed;
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        if (noclipActive)
-        {
-            velocity.y = 0;
-            float mouseY = Input.GetAxis("Vertical")* Mathf.Sin((Camera.main.transform.eulerAngles.x * Mathf.PI) / -180);
-            Vector3 move = transform.right * x + transform.forward * z + transform.up * mouseY;
-            controller.Move(move * flySpeed * walkSpeed * Time.deltaTime);
+            // Tu avais remis Input.GetAxis("Vertical"), alors que tu avais enregistrer sa valeur dans la variable z :) 
+            // Attention à ne pas call plusieurs fois des fonctions si tu les enregistres dans une variable.
+            // Original : float mouseY = -Input.GetAxis("Vertical") * Mathf.Sin((m_cameraTransform.eulerAngles.x)*Mathf.Deg2Rad);
+            float mouseY = -z * Mathf.Sin((m_cameraTransform.eulerAngles.x)*Mathf.Deg2Rad);
+            Vector3 move = transform.right * x + transform.forward * z + transform.up * mouseY + transform.up * y * 1 / m_flySpeedYreducer;
+            m_controller.Move(move * m_flySpeed * m_walkSpeed * Time.deltaTime);
             Physics.IgnoreLayerCollision(0, 9, true);
         }
         else
         {
-            Vector3 move = transform.right * x + transform.forward * z;
-            controller.Move(move * walkSpeed * Time.deltaTime);
+            // Ton code permettait le joueur de changer de direction en saut, ce qui n'est pas très réaliste :)
+            // La solution était d'enregistrer la vélocité juste avant de quitter le sol, et de maintenir la même vélocité au cours du saut.
+            // 
+            Vector3 move;
+            if (m_isGrounded)
+            {
+                move = transform.right * x + transform.forward * z;
+                m_controller.Move(move * m_walkSpeed * Time.deltaTime);
+            }
+            else
+            {
+                move = m_jumpVelocity;
+                m_controller.Move(move * Time.deltaTime);
+            }
             Physics.IgnoreLayerCollision(0, 9, false);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Settings.Instance.GetButton("jump") && m_isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            m_jumpVelocity = m_controller.velocity;
+            m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2 * m_gravity);
         }
 
-        if (!noclipActive)
+        if (!m_noclipActive && !m_isGrounded)
         {
-            velocity.y += gravity * Time.deltaTime;
+            m_velocity.y += m_gravity * Time.deltaTime;
         }
 
-        controller.Move(velocity * Time.deltaTime);
+#if UNITY_EDITOR
+        if(Input.GetKeyDown("v"))
+        {
+            NoclipToggle();
+        }
+#endif
+
+        m_controller.Move(m_velocity * Time.deltaTime);
     }
 
-    void NoclipToggle()
+    // On inverse l'état de la variable
+    // Si A = false, alors !A = true
+    public void NoclipToggle()
     {
-        noclipActive = !noclipActive;
+        m_noclipActive = !m_noclipActive;
     }
 }
