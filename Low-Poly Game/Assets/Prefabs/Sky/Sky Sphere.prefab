@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8788865554629916354}
   - component: {fileID: 8788865554629916352}
   - component: {fileID: 8788865554629916353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8788865554655444935}
   - component: {fileID: 8788865554655444928}
   - component: {fileID: 8788865554655444929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sky Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,9 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sunLight: {fileID: 8788865556365542426}
   m_timeFormatted: 
-  m_time: 0
-  m_startTime: {x: 17, y: 50}
-  m_dayLength: 10
+  m_time: 18.95
+  m_startTime: {x: 21, y: 56}
+  m_dayLength: 30
   m_stopTime: 0
 --- !u!1 &8788865554733173114
 GameObject:
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8788865554733173113}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 8788865554934871069}
   - component: {fileID: 8788865554934871070}
   - component: {fileID: 8788865554934871071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788865554934871065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 807.09894, y: -353.5211, z: -471.52753}
+  m_LocalPosition: {x: -718.3399, y: -416.2558, z: -553.77875}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 8788865554655444935}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 8788865556397511143}
   - component: {fileID: 8788865555107180062}
   - component: {fileID: 8788865555107180063}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,8 +424,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788865555107180056}
-  m_LocalRotation: {x: 0.09032508, y: 0.8529092, z: -0.15738046, w: 0.4895086}
-  m_LocalPosition: {x: -807.09894, y: 357.12106, z: 471.52747}
+  m_LocalRotation: {x: -0.09461371, y: 0.8765703, z: -0.19250093, w: -0.4308321}
+  m_LocalPosition: {x: 720.3399, y: 419.85577, z: 555.7786}
   m_LocalScale: {x: 2000, y: 2000, z: 2000}
   m_Children:
   - {fileID: 8788865555634874717}
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 8788865555634874717}
   - component: {fileID: 8788865555634874691}
   - component: {fileID: 8788865555634874716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,10 +523,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1225000
-  m_Range: 100
-  m_SpotAngle: 78.565834
-  m_InnerSpotAngle: 17.86034
+  m_Intensity: 10000000
+  m_Range: 67.72581
+  m_SpotAngle: 48.959396
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -689,7 +689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8788865556032116083}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Clouds Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 8788865556365542426}
   - component: {fileID: 8788865556365542424}
   - component: {fileID: 8788865556365542425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sun Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788865556365542427}
-  m_LocalRotation: {x: 0.00000013411046, y: 0.31056485, z: -0.00000005960465, w: 0.9505522}
+  m_LocalRotation: {x: 0, y: -0.9271839, z: 0, w: -0.37460652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
