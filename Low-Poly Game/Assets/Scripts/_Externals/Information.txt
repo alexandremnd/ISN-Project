@@ -1,0 +1,8 @@
+L'ensemble du code situé dans ce dossier, et les sous-dossiers ne sont pas développés par nous.
+Ce sont des codes créer par d'autres développeurs afin d'intéragir avec des logiciels externes. 
+
+Il faut voir ces codes comme des modules Python, ils rendent juste plus concis le code.
+Cela ne veut pas dire qu'ils font tout pour nous, ils nous offre juste la possibilité d'intéragir, c'est
+donc à nous de créer les intéractions entre notre jeu et les logiciels externes.
+
+PS : Les codes sont libre de droits sur GitHub.

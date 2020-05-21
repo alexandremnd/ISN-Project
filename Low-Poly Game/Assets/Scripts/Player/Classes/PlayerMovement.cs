@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_sprintSpeed = 20f;
     [SerializeField] private float m_gravity = -9.81f;
     [SerializeField] private float m_jumpHeight = 3f;
+    [SerializeField] private float m_groundCheckDistanceError = 0.3f;
 
     [Header("No clip settings")]
     [SerializeField] private float m_flySpeed = 5f;
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         // "m_controller.center + transform.position" = Position du centre du Character Controller en World Space.
         // "-transform.up", le vecteur qui se dirige vers le bas, mais dépendant de la rotation du controller
         // "m_controller.height * 0.5f + 0.1f", la distance max entre le sol et le centre, c'est la hauteur divisé par 2, et on rajoute 0.1 en marge d'erreur. 
-        m_isGrounded = Physics.Raycast(m_controller.center + transform.position, -transform.up, m_controller.height * 0.5f + 0.1f, groundMask);
+        m_isGrounded = Physics.Raycast(m_controller.center + transform.position, -transform.up, m_controller.height * 0.5f + m_groundCheckDistanceError, groundMask);
 
         // Beau opérateur ternaire sah quel plaisir.
         m_velocity.y = (m_isGrounded && m_velocity.y < 0) ? -2f : m_velocity.y;
