@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2958471857770260216}
   - component: {fileID: 2958471857770260223}
   - component: {fileID: 2958471857770260222}
+  - component: {fileID: 314638834940647007}
   - component: {fileID: 2958471857770260221}
   m_Layer: 0
   m_Name: Player
@@ -71,6 +72,19 @@ MonoBehaviour:
   m_flySpeed: 5
   m_flySpeedYreducer: 2
   m_noclipActive: 0
+--- !u!114 &314638834940647007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958471857770260220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b9aa2af70be0442a5fea5f764f1b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxInteractionDistance: 2
 --- !u!143 &2958471857770260221
 CharacterController:
   m_ObjectHideFlags: 0
