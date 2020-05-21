@@ -34,6 +34,10 @@ public class OreNode : MonoBehaviour
 
     // Note : Cette fonction est temporaire, pour le moment la fonction n'implémente pas l'inventaire.
     // Donc pour le moment, on fait apparaître les objets au sol (ce qui risque de causer des performances plus faibles)
+    // Pour le moment, il n'y a malheureusement pas de son spécifique lorsque l'on casse la ressource
+    // car sinon cela causerai l'attente de la destruction de la ressource mais l'apparition d'autres objets au sein de la ressource
+    // ce qui causerai des problèmes de collision. Ainsi, au lieu de produire un code plutôt "moche" et mal fait, je préfère
+    // attendre le système d'inventaire et modifier un code propre plus tard.
     private void RegisterHit(Transform playerData)
     {
         // On enregistre un coup supplémentaires, on joue le son en adéquation avec la situation (si l'on tape ou si l'on a cassé l'objet)
@@ -51,7 +55,7 @@ public class OreNode : MonoBehaviour
                 go.AddComponent<Rigidbody>();
                 collider.convex = true;
             }
-            Destroy(this.gameObject, m_soundOnBreak.length);
+            Destroy(this.gameObject);
         }
     }
 }
