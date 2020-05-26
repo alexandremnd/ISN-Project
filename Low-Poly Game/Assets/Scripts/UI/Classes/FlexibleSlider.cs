@@ -15,6 +15,10 @@ public class FlexibleSlider : MonoBehaviour
 
     private Slider m_sliderComponent;
 
+    /// <summary>
+    /// On récupère le composant "Slider", et si le slider est associé à un paramètre, on récupère la valeur dans
+    /// les paramètres.
+    /// </summary>
     private void Start()
     {
         m_sliderComponent = this.GetComponent<Slider>();
@@ -25,7 +29,9 @@ public class FlexibleSlider : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// A chaque image, on affiche la valeur du slider sur le texte associé.
+    /// </summary>
     void Update()
     {
         if (m_textComponent != null)
@@ -34,6 +40,11 @@ public class FlexibleSlider : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enregistre la valeur via la classe Settings dans un fichier
+    /// La fonction est appelée à chaque changement de valeur du Slider.
+    /// </summary>
+    /// <param name="value">Valeur du slider</param>
     public void UpdateSetting(float value)
     {
         Settings.Instance.SetSettings<float>(m_settingKey, value);

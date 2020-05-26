@@ -26,6 +26,10 @@ public class ButtonToggeable : MonoBehaviour
         m_button.IsActive = m_actualState;
     }
 
+    /// <summary>
+    /// On règle le texte du bouton selon l'état du bouton
+    /// Si l'on change la valeur du bouton, on enregistre la nouvelle valeur dans les paramètres.
+    /// </summary>
     private void Update()
     {
         if (m_button.IsActive)

@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float m_iWalkSpeed;
 
     // Start is called before the first frame update
-    // On prend quelque références vers des objets dans la scène.
+    // On prend quelque références vers des objets dans la scène (Camera, le controlleur du personnage)
     void Start()
     {
         m_iWalkSpeed = m_walkSpeed;

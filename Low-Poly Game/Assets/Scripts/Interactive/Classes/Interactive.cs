@@ -18,6 +18,12 @@ public class Interactive : MonoBehaviour
     public Action<Transform> m_actionOnHoldUse;
     public Action<Transform> m_actionOnAttack;
 
+    /// <summary>
+    /// Ici, selon le type d'interaction, on appelle les fonctions qui se sont enregistrés à ce script pour recevoir 
+    /// une "notification" quand le joueur intéragis avec l'objet où l'on est.
+    /// </summary>
+    /// <param name="playerTransform">Classe contenant la position, rotation, taille du joueur</param>
+    /// <param name="type">Le type d'interaction (attaque, utilisation classique)</param>
     public void Interact(Transform playerTransform, InteractionType type)
     {
         Debug.Log(m_actionOnAttack);

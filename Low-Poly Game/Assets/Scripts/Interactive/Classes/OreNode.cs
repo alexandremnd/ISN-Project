@@ -18,7 +18,10 @@ public class OreNode : MonoBehaviour
     private AudioSource m_audioSource;
     private int m_hitCount = 0;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// On inscrit ce script dans une sorte de registre pour recevoir une "notification" quand on subit 
+    /// une interaction de la part du joueur.
+    /// </summary>
     void Start()
     {
         // On règle un évènement, quand un script capte que le joueur effectue une "attaque" sur lui

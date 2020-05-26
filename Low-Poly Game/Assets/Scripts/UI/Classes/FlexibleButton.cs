@@ -90,19 +90,23 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void Awake()
     {
+        // On récupère des references vers des objets.
         this.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
 
         m_text = this.GetComponentInChildren<TextMeshProUGUI>();
         m_image = this.GetComponent<Image>();
         m_button = this.GetComponent<Button>();
 
+        // On règle l'image du bouton
         m_image.sprite = m_sourceImage;
 
+        // Si on veut que le texte du bouton ai le même nom que le nom du bouton, on le fait.
         if (m_useButtonNameForText && TextInitialized)
         {
             m_text.SetText(this.name);
         }
 
+        // Si le bouton doit être actif par défaut, on active le bouton, sinon, non
         if (m_isPartOfAButtonGroup && m_isActiveByDefault)
         {
             m_menu.ToggleActive(this);
@@ -113,6 +117,7 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             IsActive = m_isActiveByDefault;
         }
 
+        // On crée une sorte de palette de couleur pour Unity.
         m_colorWhenIdle.normalColor = m_colorOnIdle;
         m_colorWhenIdle.highlightedColor = m_colorOnHover;
         m_colorWhenIdle.pressedColor = m_colorOnClick;
@@ -139,6 +144,7 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             m_colorWhenActive.fadeDuration = m_fadeDuration;
         }
 
+        // On règle la couleur du bouton, du texte, la police d'écriture, la taille de la police.
         if (IsActive)
         {
             m_button.colors = m_colorWhenActive;
@@ -154,15 +160,18 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         m_text.fontSize = m_fontSize;
     }
 
+    /// <summary>
+    /// Quand on change une valeur dans l'éditeur Unity, on appelle Awake.
+    /// </summary>
     private void OnValidate()
     {
         Awake();
     }
 
     /// <summary>
-    /// Apply the specified string on the button. 
+    /// Applique le texte spécifié en argument au bouton.
     /// </summary>
-    /// <param name="text">Text you want to apply to the button text.</param>
+    /// <param name="text">Texte que l'on souhaite appliquer au bouton</param>
     public void SetText(string text)
     {
         if (TextInitialized)
@@ -172,12 +181,20 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     #region Events|Pointer
+    /// <summary>
+    /// Quand la souris survole le bouton, on met la couleur associé au survol du bouton
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (m_constantColorOnActive && IsActive) return;
         m_text.color = m_textColorOnHover;
     }
 
+    /// <summary>
+    /// Quand la souris ne survole pas le bouton, on remet la couleur d'origine du bouton (sauf si le bouton est actif).
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnPointerExit(PointerEventData eventData)
     {
         if (m_constantColorOnActive && IsActive) return;
@@ -189,12 +206,20 @@ public class FlexibleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         m_text.color = m_textColorOnIdle;
     }
 
+    /// <summary>
+    /// Quand on appuye sur le bouton, on change la couleur du bouton
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnPointerDown(PointerEventData eventData)
     {
         if (m_constantColorOnActive && IsActive) return;
         m_text.color = m_textColorOnClick;
     }
 
+    /// <summary>
+    /// Quand on relève le clic gauche, on inverse l'état du bouton (On/Off)
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnPointerUp(PointerEventData eventData)
     {
         if (m_isPartOfAButtonGroup)

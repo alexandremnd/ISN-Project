@@ -19,6 +19,13 @@ public class CelestialFollow : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float m_distanceBetweenCameraCelestial;
 
+    /// <summary>
+    /// On met à jour la rotation du soleil/lune.
+    /// La lune et le soleil étant strictement symétrique par rapport à l'origine du monde, si le soleil
+    /// est sous l'horizon, la lune est au dessus l'horizon.
+    /// Ainsi, si le soleil est sous l'horizon, on enlève des effets graphiques au soleil
+    /// Inversement avec la lune.
+    /// </summary>
     void Update()
     {
         UpdateRotation();
@@ -39,6 +46,9 @@ public class CelestialFollow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Permet de maintenir la distance entre le joueur et les objets célestes constant.
+    /// </summary>
     public void UpdateRotation()
     {
         m_sun.position = m_camera.position - (m_sunLight.forward * m_distanceBetweenCameraCelestial);
@@ -46,6 +56,9 @@ public class CelestialFollow : MonoBehaviour
         m_moon.LookAt(m_sunLight);
     }
 
+    /// <summary>
+    /// Retourne vrai si la lune est sous l'horizon
+    /// </summary>
     public bool MoonBellowHorizon
     {
         get
@@ -54,6 +67,9 @@ public class CelestialFollow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Retourne vrai si le soleil est sous l'horizon
+    /// </summary>
     public bool SunBellowHorizon
     {
         get
@@ -62,6 +78,12 @@ public class CelestialFollow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dir">Direction de l'axe z local de l'objet</param>
+    /// <param name="angleThreshold">Seuil toléré avant de considérer que l'on se situe bien en dessous l'horizon.</param>
+    /// <returns></returns>
     public bool CheckBellowHorizon(Vector3 dir, float angleThreshold)
     {
         return dir.y < 0 ? false : (90 - Mathf.Acos(dir.y) * Mathf.Rad2Deg) > angleThreshold ? true : false;

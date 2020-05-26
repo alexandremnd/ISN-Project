@@ -9,6 +9,9 @@ public class GameFile : MonoBehaviour
 
     private string m_gameFilePath;
 
+    /// <summary>
+    /// On créer les répertoires dans le dossier "Documents" de l'ordinateur afin d'enregister les paramètres du joueur.
+    /// </summary>
     private void Awake()
     {
         if (Instance != null)
@@ -51,6 +54,11 @@ public class GameFile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ecrit un fichier à l'emplacement indiqué et avec le contenu fournis.
+    /// </summary>
+    /// <param name="fileName">Le nom du fichier (avec son chemin)</param>
+    /// <param name="content">Le contenu du fichier</param>
     public void WriteFile(string fileName, string content)
     {
         File.WriteAllText(m_gameFilePath + fileName, content);

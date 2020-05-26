@@ -12,13 +12,18 @@ public class Raycaster : MonoBehaviour
 
     private Transform m_holdedGameObject;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// On récupère une référence vers la caméra principale = caméra du joueur.
+    /// </summary>
     void Start()
     {
         m_cameraTransform = Camera.main.transform;   
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Si le joueur attaque, on envoie un rayon pour voir ce qu'il touche, si il touche un certain type d'objet
+    /// on intéragis avec.
+    /// </summary>
     void Update()
     {
         if (Settings.Instance.GetButtonDown("primaryAttack"))
@@ -34,21 +39,6 @@ public class Raycaster : MonoBehaviour
                         {
                             m_interactiveItem.Interact(this.transform, InteractionType.Attack);
                         }
-                    }
-                    break;
-                case "grab":
-                    raycastState = Physics.Raycast(m_cameraTransform.position, m_cameraTransform.forward, out m_hit, m_maxInteractionDistance);
-                    if ( (raycastState && m_hit.transform.CompareTag("Entity")))
-                    {
-                        m_holdedGameObject = m_hit.transform;
-                    }
-                    else if (m_holdedGameObject != null)
-                    {
-
-                    }
-                    else
-                    {
-                        m_holdedGameObject = null;
                     }
                     break;
             }

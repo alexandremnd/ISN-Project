@@ -25,6 +25,10 @@ public class ButtonKeyRegister : MonoBehaviour
         m_button.SetText(RegisteredKey.ToString());
     }
 
+    /// <summary>
+    /// On parcoure l'ensemble des touches existantes d'un clavier et l'on vérifie si l'on appuye dessus.
+    /// Si on appuye sur une touche, on enregistre la touche dans les paramètres.
+    /// </summary>
     private void Update()
     {
         if (m_button.IsActive)

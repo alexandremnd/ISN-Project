@@ -24,7 +24,6 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Les conventions sont bien respectés, parfait ;)
         float mouseX = Input.GetAxis("Mouse X") * m_mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * m_mouseSensitivity * Time.deltaTime;
 

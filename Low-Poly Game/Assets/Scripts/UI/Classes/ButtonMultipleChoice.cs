@@ -20,6 +20,7 @@ public class ButtonMultipleChoice : MonoBehaviour
     public int ActualChoice { get; private set; } = 0;
     #endregion
 
+    // Recupère la valeur déjà enregistrer par l'utilisateur dans les paramètres et l'applique au script.
     private void Start()
     {
         m_button = GetComponent<FlexibleButton>();
@@ -34,17 +35,30 @@ public class ButtonMultipleChoice : MonoBehaviour
         m_button.SetText(m_choice[ActualChoice]);
     }
 
+    /// <summary>
+    /// Passe au choix suivant de la liste
+    /// On met à jour le texte du bouton
+    /// On enregistre les paramètres
+    /// </summary>
     public void NextChoice()
     {
         ActualChoice++;
+
+        // On gère l'exception du dépassement d'index du tableau
         if (ActualChoice == m_choiceLength)
         {
             ActualChoice = 0;
         }
+
         m_button.SetText(m_choice[ActualChoice]);
         UpdateSetting();
     }
 
+    /// <summary>
+    /// Passe au choix suivant de la liste
+    /// On met à jour le texte du bouton
+    /// On enregistre les paramètres
+    /// </summary>
     public void PreviousChoice()
     {
         ActualChoice--;
@@ -56,6 +70,9 @@ public class ButtonMultipleChoice : MonoBehaviour
         UpdateSetting();
     }
 
+    /// <summary>
+    /// Règle le choix
+    /// </summary>
     public void SetChoice(int index)
     {
         ActualChoice = index;

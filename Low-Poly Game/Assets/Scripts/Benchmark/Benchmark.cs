@@ -7,6 +7,10 @@ public class Benchmark : MonoBehaviour
 
     float deltaTime;
     float fps;
+
+    /// <summary>
+    /// Ici, on ajoute à la liste "m_framePerSecond" le nombre d'images par seconde moyenne.
+    /// </summary>
     private void Update()
     {
         deltaTime = Time.deltaTime;
@@ -16,6 +20,9 @@ public class Benchmark : MonoBehaviour
         m_framePerSecond.Add(fps);
     }
 
+    /// <summary>
+    /// On effectue la moyenne du nombre d'images par seconde sur le temps d'exécution et on l'affiche dans la console.
+    /// </summary>
     private void OnApplicationQuit()
     {
         float averageFps = 0;

@@ -33,6 +33,10 @@ public class t_BasicInventory : MonoBehaviour
         public Sprite itemSprite;
     }
 
+    /// <summary>
+    /// On créer ce que l'on appelle un Singleton, c'est à dire que cette classe aura une seule instance, 
+    /// et pas une de plus.
+    /// </summary>
     private void Awake()
     {
         if (Instance != null)
@@ -50,7 +54,6 @@ public class t_BasicInventory : MonoBehaviour
         return m_hotbarItem[m_index];
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         // On itère sur chaque objet contenu dans la variable m_hotbar, on crée un slot (emplacement) sur l'interface graphique
@@ -71,7 +74,9 @@ public class t_BasicInventory : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Selon le mouvement de la molette de la souris, on déplace l'index pour change l'objet en main.
+    /// </summary>
     void Update()
     {
         int oldIndex = m_index;
@@ -94,6 +99,12 @@ public class t_BasicInventory : MonoBehaviour
         UpdateHotbar(oldIndex, m_index);
     }
 
+    /// <summary>
+    /// On change la couleur de l'emplacement de l'ancien objet et aussi de l'emplacement du nouveau objet pour faire
+    /// comprendre au joueur qu'il a changé d'objet en main.
+    /// </summary>
+    /// <param name="oldActiveIndex">L'ancien objet en main</param>
+    /// <param name="newActiveIndex">Le nouveau objet en main</param>
     void UpdateHotbar(int oldActiveIndex, int newActiveIndex)
     {
         m_slotImage[oldActiveIndex].color = idleColor;

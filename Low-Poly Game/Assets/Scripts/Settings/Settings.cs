@@ -65,7 +65,7 @@ public class Settings : MonoBehaviour
         ApplySettings();
     }
 
-    // Quand une nouvelle scène charge, on execute ce code.
+    // Quand une nouvelle scène charge, on récupère la nouvelle caméra principale.
     private void OnLevelWasLoaded(int level)
     {
         LoadCamera();
