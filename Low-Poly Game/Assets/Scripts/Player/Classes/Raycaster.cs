@@ -10,6 +10,8 @@ public class Raycaster : MonoBehaviour
     private RaycastHit m_hit;
     private Interactive m_interactiveItem;
 
+    private Transform m_holdedGameObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +23,34 @@ public class Raycaster : MonoBehaviour
     {
         if (Settings.Instance.GetButtonDown("primaryAttack"))
         {
-            bool raycastState = Physics.Raycast(m_cameraTransform.position, m_cameraTransform.forward, out m_hit, m_maxInteractionDistance);
-            if (raycastState && m_hit.transform.CompareTag("Interactive"))
+            switch (t_BasicInventory.Instance.GetItem().itemInternalName)
             {
-                m_interactiveItem = m_hit.transform.GetComponent<Interactive>();
-                if (m_interactiveItem != null)
-                {
-                    m_interactiveItem.Interact(this.transform, InteractionType.Attack);
-                }
+                case "pickaxe":
+                    bool raycastState = Physics.Raycast(m_cameraTransform.position, m_cameraTransform.forward, out m_hit, m_maxInteractionDistance);
+                    if (raycastState && m_hit.transform.CompareTag("Interactive"))
+                    {
+                        m_interactiveItem = m_hit.transform.GetComponent<Interactive>();
+                        if (m_interactiveItem != null)
+                        {
+                            m_interactiveItem.Interact(this.transform, InteractionType.Attack);
+                        }
+                    }
+                    break;
+                case "grab":
+                    raycastState = Physics.Raycast(m_cameraTransform.position, m_cameraTransform.forward, out m_hit, m_maxInteractionDistance);
+                    if ( (raycastState && m_hit.transform.CompareTag("Entity")))
+                    {
+                        m_holdedGameObject = m_hit.transform;
+                    }
+                    else if (m_holdedGameObject != null)
+                    {
+
+                    }
+                    else
+                    {
+                        m_holdedGameObject = null;
+                    }
+                    break;
             }
         }
     }

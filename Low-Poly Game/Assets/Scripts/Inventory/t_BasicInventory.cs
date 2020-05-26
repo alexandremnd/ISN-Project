@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ using UnityEngine.UI;
 // Ainsi, vu que le jeu est actuellement en démo, je laisse ce script.
 public class t_BasicInventory : MonoBehaviour
 {
+    public static t_BasicInventory Instance;
+
     [Header("Inventory Settings")]
     [SerializeField] private const int m_slotNumber = 7;
     [SerializeField] private Item[] m_hotbarItem = new Item[m_slotNumber];
@@ -24,14 +27,28 @@ public class t_BasicInventory : MonoBehaviour
     private Color32 idleColor = new Color32(0, 0, 0, 107);
 
     [System.Serializable]
-    private class Item
+    public class Item
     {
         public string itemInternalName;
-        public string itemName;
         public Sprite itemSprite;
-        public GameObject itemObject;
     }
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public Item GetItem()
+    {
+        return m_hotbarItem[m_index];
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +65,6 @@ public class t_BasicInventory : MonoBehaviour
 
             if (m_hotbarItem[i].itemSprite != null)
             {
-                Debug.Log("image");
                 itemImage.enabled = true;
                 itemImage.sprite = m_hotbarItem[i].itemSprite;
             }
